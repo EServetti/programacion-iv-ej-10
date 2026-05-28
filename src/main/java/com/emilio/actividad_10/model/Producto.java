@@ -1,25 +1,28 @@
 package com.emilio.actividad_10.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
 public class Producto {
     @Id
-    @GeneratedValue
-    Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    @Column(nullable=false, unique=true)
-    String nombre;
+    @Column(nullable = false, unique = true)
+    private String nombre;
 
-    @Column(nullable=false)
-    String descripcion;
+    @Column(nullable = false)
+    private String descripcion;
 
-    @Column(nullable=false)
-    double precio;
+    @Column(nullable = false)
+    private double precio;
 
-    @Column(nullable=false)
-    int stock;
+    @Column(nullable = false)
+    private int stock;
 }
